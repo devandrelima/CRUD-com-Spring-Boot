@@ -1,4 +1,4 @@
-package com.crud.spring.domain.product;
+package com.crud.spring.model.product;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

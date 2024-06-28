@@ -1,4 +1,4 @@
-package com.crud.spring.domain.product;
+package com.crud.spring.model.product;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
