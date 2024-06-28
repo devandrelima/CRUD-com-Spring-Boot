@@ -39,6 +39,4 @@ public class Product {
         sb.append('}');
         return sb.toString();
     }
-
-
 }
