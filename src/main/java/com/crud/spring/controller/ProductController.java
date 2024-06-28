@@ -44,14 +44,14 @@ public class ProductController {
     }
 
     @PutMapping
-    @Transactional
+    @Transactional                                                                      // Permite executar mais de um comando no SQL
     public ResponseEntity updateProduct(@RequestBody @Valid RequestProduct data) {
         Optional<Product> optionalProduct = repository.findById(data.id());
         
         if(optionalProduct.isPresent()){
             Product product = optionalProduct.get();
-            product.setName(data.name());
-            product.setPrice_in_cents(data.price_in_cents());
+            product.setName(data.name());                                               // Atualiza o nome no bando de dados
+            product.setPrice_in_cents(data.price_in_cents());                           // Atualiza o preço no banco de dados
             return ResponseEntity.ok(product);
         } else {
             throw new EntityNotFoundException();
@@ -62,6 +62,7 @@ public class ProductController {
     @Transactional
     public ResponseEntity deleteProduct(@PathVariable String id){
         Optional<Product> optionalProduct = repository.findById(id);
+
         if(optionalProduct.isPresent()){
             Product product = optionalProduct.get();
             repository.deleteById(id);
@@ -70,5 +71,4 @@ public class ProductController {
             throw new EntityNotFoundException();
         }
     }
-
 }
